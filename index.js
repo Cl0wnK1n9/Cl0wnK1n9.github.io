@@ -1,4 +1,4 @@
-let bubbles = ['one', 'two', 'three', 'four', 'five'];
+let bubbles = ['one', 'two', 'three', 'four'];
 let windowWidth = window.innerWidth;
 let body = document.body;
 let windowHeight = window.innerHeight;
