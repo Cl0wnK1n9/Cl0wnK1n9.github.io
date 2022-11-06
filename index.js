@@ -69,7 +69,7 @@ function startGame() {
     let loop = setInterval(function () {
         timeout = Math.floor(Math.random() * 600 - 100);
         // pop random bubble
-        for(i=0;i<10;i++){
+        for(i=0;i<6;i++){
             createBubble();
         }
         currentTime = new Date().getTime();
