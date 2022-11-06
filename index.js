@@ -9,6 +9,7 @@ let currentBubble = 0;
 let gameOver = false;
 let shadow = document.querySelector('.shadow');
 let startBtn = document.querySelector('.start-btn');
+let round = 0;
 
 function createBubble() {
     let div = document.createElement('div');
@@ -46,20 +47,18 @@ function animateBubble(elem) {
 function deleteBubble(elem) {
     elem.remove();
     noPop++;
-    scoreUpdate();
-}
-
-function scoreUpdate() {
-    for (let i = 0; i < scores.length; i++) {
-        scores[i].textContent = noPop;
-    }
 }
 
 function startGame() {
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+    // play from the beginning
+    audio.currentTime = 0;
+    audio.play();
     // get current time
     let startTime = new Date().getTime();
     // add 60 seconds
-    let endTime = startTime + 10000;
+    let endTime = startTime + 60000;
     restartGame();
     let timeout = 0;
 
@@ -77,8 +76,14 @@ function startGame() {
         if (currentTime > endTime) {
             clearInterval(loop);
             shadow.style.display = 'flex';
-            shadow.querySelector('.loser').style.display = 'block';
-            shadow.querySelector('.score').textContent = noPop;
+            if (round % 2 == 0) {
+                shadow.querySelector('.red-team').textContent = 32;
+                shadow.querySelector('.blue-team').textContent = 22;
+            }
+            else {
+                shadow.querySelector('.red-team').textContent = 22;
+                shadow.querySelector('.blue-team').textContent = 22;
+            }
         }
 
     }, 800 + timeout);
@@ -92,6 +97,9 @@ function startGame() {
         currentTime = new Date().getTime();
         if (currentTime > endTime) {
             clearInterval(loop2);
+            const audio = document.querySelector("audio");
+            // stop audio
+            audio.pause();
         }
     }, 100);
 
@@ -104,7 +112,7 @@ function restartGame() {
     }
     gameOver = false;
     noPop = 0;
-    scoreUpdate();
+    round += 1;
 }
 
 function popRandom() {
@@ -114,14 +122,9 @@ function popRandom() {
 }
 document.querySelector('.restart').addEventListener('click', function () {
     shadow.style.display = 'none';
-    shadow.querySelector('.loser').style.display = 'none';
     startGame();
 });
 
-document.querySelector('.cancel').addEventListener('click', function () {
-    shadow.style.display = 'none';
-    document.querySelector('.main-game').style.display = 'flex';
-});
 startBtn.addEventListener('click', function () {
     startGame();
     document.querySelector('.main-game').style.display = 'none';

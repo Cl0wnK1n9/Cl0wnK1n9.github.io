@@ -8,26 +8,33 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+
+    <!-- background music -->
+    <audio src="./ahihi.mp3" ></audio>
     <!---<div class="bubble bubble-one"></div>-->
 
-    <div class="score-board">
-      <p>Điểm: <span class="score"> 0 </span></p>
-    </div>
     <div class="shadow">
-      <div class="total-score">
-        <div class="wrapper loser">
-          <h4>Bạn đã làm nổ <span class="score"> 0 </span> quả bóng bay</h4>
-          <p>Chơi lại?</p>
-          <button class="restart">Có</button>
-          <button class="cancel">Không</button>
+      <div class="total-score-red">
+        <div>
+                <h4> <span class="score"> <span class="red-team">0</span>  quả bóng bay</span></h4>
         </div>
       </div>
+      <div class="total-score-blue">
+        <div>
+                <h4> <span class="score"> <span class="blue-team">0</span>  quả bóng bay</span></h4>
+        </div>
+      </div>
+      <button class="restart">Again</button>
     </div>
+
+    
     <div class="main-game">
       <h2>Sẵn sàng</h2>
       <button class="start-btn">Bắt đầu</button>
     </div>
 
+
+    <div class="shadow"></div>
     <script src="index.js"></script>
   </body>
 </html>

@@ -89,11 +89,24 @@
     z-index: 1000;
     position: relative;
   }
-  .total-score {
-    background: #fff;
+  .total-score-red {
+    background: red;
     padding: 10px 100px 40px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   }
+
+  .total-score-blue {
+    background: blue;
+    padding: 10px 100px 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  }
+
+  .score{
+    color: #f8e63e;
+  }
+
   
