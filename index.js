@@ -37,7 +37,7 @@ function animateBubble(elem) {
             clearInterval(interval);
             gameOver = true;
         } else {
-            position++;
+            position+=3;
             elem.style.top = windowHeight - position + 'px';
         }
     }
