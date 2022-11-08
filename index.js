@@ -78,7 +78,7 @@ function startGame() {
             shadow.style.display = 'flex';
             if (round % 2 == 0) {
                 shadow.querySelector('.red-team').textContent = 32;
-                shadow.querySelector('.blue-team').textContent = 22;
+                shadow.querySelector('.blue-team').textContent = 32;
             }
             else {
                 shadow.querySelector('.red-team').textContent = 22;
